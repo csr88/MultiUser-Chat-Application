@@ -1,0 +1,24 @@
+1. Creating a chat server with ServerSocket
+  -> seversocket object 
+  -> clienSocket of Socket datatype which accpet the incoming connection and stores the data
+  -> create an OutputStream object which gets the clientSocket outputstream
+  -> outputstream.write(("data").getBytes());   -> data is the data to be sent through the outputstream and getBytes encodes the data to make it able to travel.
+  -> clientSocket.close() to close to connection on client side after the message has been sent.
+  -> Thread.sleep(1000) to delay each message by 1000 milliseconds = 1 second 
+  -> clientSocket close right after the outputstream message
+
+2. Accepting multiple connections
+  -> one thread to listen on clients - main thread
+  -> other threads to handle the clients (one thread per client)
+  -> new method handleClientSocket
+  -> inside handleClientSocket{
+      - output stream object
+      - outputstream.write to send data
+      - Thread.sleep()
+      
+  -> new thread inside which
+      - run method
+      - call the handleServerSocket method with clientSocket parameter
+      -> remember semicolon after closing the thread (i.e.  };)
+      - start the thread
+      
