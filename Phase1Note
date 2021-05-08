@@ -7,7 +7,7 @@
   -> Thread.sleep(1000) to delay each message by 1000 milliseconds = 1 second 
   -> clientSocket close right after the outputstream message
 
-2. Accepting multiple connections
+2. Accepting multiple clients
   -> one thread to listen on clients - main thread
   -> other threads to handle the clients (one thread per client)
   -> new method handleClientSocket
@@ -21,4 +21,13 @@
       - call the handleServerSocket method with clientSocket parameter
       -> remember semicolon after closing the thread (i.e.  };)
       - start the thread
-      
+
+3. Creating ServerWorker class to handle multiple clients
+  -> Create Server worker class which extends thread
+  -> create clientSocket method of Socket datatype
+  -> constructor which takes clientsocket as parameter
+  -> thrad's run method insdie which
+     - call handleClientSocket method with clientsocket as parameter
+     
+  -> copy handleClientSocket method from previous phase but remove static
+  
