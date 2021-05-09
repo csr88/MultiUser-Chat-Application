@@ -10,4 +10,4 @@ Phase3: Creating server worker to handle multiple clients
 
 
 
-Phase 2.2 - Handling User Login (no ServerMain since no chages was made in ServerMain java file)
+Phase 2.2 - Handling User Login (no ServerMain since no chages were made in ServerMain java file)
