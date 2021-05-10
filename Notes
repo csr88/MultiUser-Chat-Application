@@ -33,6 +33,7 @@
   
   
 2.3. To show everyone when a user has logged in, we need access to every connection in the server. 
-      Since that is the job of the ServerMain, we will now Refactor the Server Main by making a server 
-      object which will have the collection of server workers.
+      Since that is the job of the ServerMain, we will now Refactor the Server Main by making a server object which will have the collection of server workers. 
+      In server, we want to have multiple Serverworkers and we want to iterate through those workers and that's how we will send login information from one
+      conenction to other connection.
   
