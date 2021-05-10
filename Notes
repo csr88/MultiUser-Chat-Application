@@ -1,4 +1,4 @@
-1. Creating a chat server with ServerSocket
+1.1. Creating a chat server with ServerSocket
   -> seversocket object 
   -> clienSocket of Socket datatype which accpet the incoming connection and stores the data
   -> create an OutputStream object which gets the clientSocket outputstream
@@ -7,7 +7,7 @@
   -> Thread.sleep(1000) to delay each message by 1000 milliseconds = 1 second 
   -> clientSocket close right after the outputstream message
 
-2. Accepting multiple clients
+1.2. Accepting multiple clients
   -> one thread to listen on clients - main thread
   -> other threads to handle the clients (one thread per client)
   -> new method handleClientSocket
@@ -22,7 +22,7 @@
       -> remember semicolon after closing the thread (i.e.  };)
       - start the thread
 
-3. Creating ServerWorker class to handle multiple clients
+1.3. Creating ServerWorker class to handle multiple clients
   -> Create Server worker class which extends thread
   -> create clientSocket method of Socket datatype
   -> constructor which takes clientsocket as parameter
@@ -30,4 +30,9 @@
      - call handleClientSocket method with clientsocket as parameter
      
   -> copy handleClientSocket method from previous phase but remove static
+  
+  
+2.3. To show everyone when a user has logged in, we need access to every connection in the server. 
+      Since that is the job of the ServerMain, we will now Refactor the Server Main by making a server 
+      object which will have the collection of server workers.
   
