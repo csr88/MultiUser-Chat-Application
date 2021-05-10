@@ -70,7 +70,7 @@ public class ServerWorker extends  Thread {
                 String msg = "Login Successfull!";
                 outputStream.write(msg.getBytes(StandardCharsets.UTF_8));
                 this.login = login;
-                System.out.println("User " + login + "has logged in.");
+                System.out.println("\nUser " + this.login + " has logged in.");
             }else{
                     String msg = "Login Failed!";
                     outputStream.write(msg.getBytes(StandardCharsets.UTF_8));
