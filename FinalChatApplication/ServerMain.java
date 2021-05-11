@@ -10,6 +10,6 @@ public class ServerMain {
 
 /* usernames and password
 shishir = p@ssword
-guest = summer2021
+guest = guest69
 anonymous = mrrobot
  */
