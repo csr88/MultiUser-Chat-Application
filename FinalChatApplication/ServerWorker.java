@@ -38,7 +38,7 @@ public class ServerWorker extends Thread {
             String[] tokens = StringUtils.split(line);
             if (tokens != null && tokens.length > 0) {
                 String cmd = tokens[0];
-                if ("logoff".equals(cmd) || "quit".equalsIgnoreCase(cmd)) {
+                if ("logout".equals(cmd) || "exit".equalsIgnoreCase(cmd)) {
                     handleLogoff();
                     break;
                 } else if ("login".equalsIgnoreCase(cmd)) {
