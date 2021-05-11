@@ -37,3 +37,13 @@
       In server, we want to have multiple Serverworkers and we want to iterate through those workers and that's how we will send login information from one
       conenction to other connection.
   
+
+
+3.3 # Final Chat Application
+
+run the ServerMain and then in the terminal -> telnet localhost <port>
+to login -> login <username> <password>
+to msg a user -> msg <user you want to send> <the message>
+to create a topic and join -> join #<topic_name>
+to msg in a topc -> msg #<topic_name> <the message>
+to quit or logout -> exit or logout
