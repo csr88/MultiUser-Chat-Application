@@ -1,6 +1,4 @@
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -49,14 +47,34 @@ public class Server extends Thread {
 
     public static void fileDownload(Socket clientSocket) throws IOException {
         //file sharing
-        //reading the file from the folder
-        FileInputStream fr = new FileInputStream("/home/shishir/Documents/file.txt");
-        byte b[] = new byte[2002]; //creating a byte array to input the size of the file here taking random size
-        fr.read(b,0,b.length); //read method to read the file from 0 to end and store it into a new variable 'b'
-        //now send the file usign stream
+
+        //Specify the file
+        File file = new File("/home/shishir/Documents/file.txt");
+        FileInputStream fis = new FileInputStream(file);
+        BufferedInputStream bis = new BufferedInputStream(fis);
+        //Get socket's output stream
         OutputStream os = clientSocket.getOutputStream();
-        //read the b variable and send the file from 0 to end(ie. b.length)
-        os.write(b,0,b.length);
+        //Read File Contents into contents array
+        byte[] contents;
+        long fileLength = file.length();
+        long current = 0;
+        long start = System.nanoTime();
+        while(current!=fileLength){
+            int size = 10000;
+            if(fileLength - current >= size)
+                current += size;
+            else{
+                size = (int)(fileLength - current);
+                current = fileLength;
+            }
+            contents = new byte[size];
+            bis.read(contents, 0, size);
+            os.write(contents);
+            System.out.print("Sending file ... "+(current*100)/fileLength+"% complete!");
+        }
+        os.flush();
+
+        System.out.println("File sent succesfully!");
     }
 
 }

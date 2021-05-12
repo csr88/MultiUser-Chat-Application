@@ -173,20 +173,20 @@ public class ServerWorker extends Thread {
         Server.fileDownload(clientSocket);
 
 
-        //creating a byte array with a random file size since we do not know the filesize
-        byte []ba =new byte[20002];
-        //capture the stream sent from the server
-        InputStream isa = clientSocket.getInputStream();
-        //create a new file inside Music folder with any name you want
-        FileOutputStream fra = new FileOutputStream("/home/shisir/Music/downloaded_file.txt");
-        //read the inputstream file
-        isa.read(ba,0,ba.length);
-        //write the file into b from beginning to end
-        fra.write(ba,0,ba.length);
-        System.out.println("\nFile Downloaded...");
-
-       fra.close();
-       isa.close();
+        byte[] contents = new byte[10000];
+        //Initialize the FileOutputStream to the output file's full path.
+        FileOutputStream fos = new FileOutputStream("/home/shishir/Music/file1.txt");
+        BufferedOutputStream bos = new BufferedOutputStream(fos);
+        InputStream is = clientSocket.getInputStream();
+        //No of bytes read in one read() call
+        int bytesRead = 0;
+        while((bytesRead=is.read(contents))!=-1) {
+            bos.write(contents, 0, bytesRead);
+        }
+        bos.flush();
+        bos.close();
+        System.out.println("File saved successfully!");
+        clientSocket.close();
 
     }
 
