@@ -42,7 +42,7 @@ public class ServerWorker extends Thread {
                 } else if ("login".equalsIgnoreCase(cmd)) {
                     handleLogin(outputStream, tokens);
                 } else {
-                    String msg = "unknown " + cmd + "\n";
+                    String msg = "Unknown " + cmd + "\n";
                     outputStream.write(msg.getBytes());
                 }
             }
@@ -55,7 +55,7 @@ public class ServerWorker extends Thread {
         List<ServerWorker> workerList = server.getworkerList();
 
         // send other online users current user's status
-        String onlineMsg = "offline " + login + "\n";
+        String onlineMsg = "User  " + login + " is now offline\n";
         for(ServerWorker worker : workerList) {
             if (!login.equals(worker.getLogin())) {
                 worker.send(onlineMsg);
@@ -85,14 +85,14 @@ public class ServerWorker extends Thread {
                 for(ServerWorker worker : workerList) {
                     if (worker.getLogin() != null) {
                         if (!login.equals(worker.getLogin())) {
-                            String msg2 = "User " + worker.getLogin() + "online\n";
+                            String msg2 = "User is " + worker.getLogin() + " online\n";
                             send(msg2);
                         }
                     }
                 }
 
                 // send other online users current user's status
-                String onlineMsg = "User " + login + "online\n";
+                String onlineMsg = "User " + login + " is now online\n";
                 for(ServerWorker worker : workerList) {
                     if (!login.equals(worker.getLogin())) {
                         worker.send(onlineMsg);
