@@ -64,7 +64,7 @@ public class ServerWorker extends  Thread {
             String password = tokens[2];
 
             if ((login.equalsIgnoreCase("guest")&&password.equals("guest123"))
-                    || (login.equalsIgnoreCase("anon") && password.equals("anonymous "))  ||
+                    || (login.equalsIgnoreCase("anon") && password.equals("anonymous"))  ||
                     login.equalsIgnoreCase("shishir") && password.equals("shishir123")) {
 
                 String msg = "Login Successfull!";
