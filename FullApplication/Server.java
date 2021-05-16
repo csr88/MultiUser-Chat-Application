@@ -92,6 +92,7 @@ public class Server extends Thread {
             FileOutputStream fos = new FileOutputStream(filedestination);
             byte[] s = contents;
             fos.write(s);
+            System.out.println("\nFile saved successfully.");
             System.out.print("Sending file ... "+(current*100)/fileLength+"% complete!");
         }
 
